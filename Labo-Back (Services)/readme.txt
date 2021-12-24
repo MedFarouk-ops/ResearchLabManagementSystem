@@ -5,11 +5,11 @@ Partie back avec les micro-services suivant:
  - publication service (PS)
 
 le (MS) doit comminiquer avec tous les autre micro-services : 
-	=> on doit creer les beans suivant dans MS :
+	=> on doit creer les beans suivant dans MSMembre :
 		- EventBean
 		- OutilBean
 		- PublicationBean 
-	=> on doit creer les proxies suivant dans MS :
+	=> on doit creer les proxies suivant dans MSMembre :
 		- EventServiceProxy
 		- OutilServiceProxy
 		- PublicationServiceProxy
