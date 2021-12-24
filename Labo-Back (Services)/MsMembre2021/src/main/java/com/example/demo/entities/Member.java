@@ -16,8 +16,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import com.example.demo.beans.EvenementBean;
-import com.example.demo.beans.OutilBean;
 import com.example.demo.beans.PublicationBean;
 
 @Entity
@@ -40,23 +38,6 @@ public abstract class Member  implements Serializable{
 	@Transient
 	Collection<PublicationBean> pubs;
 
-	@Transient
-	Collection<EvenementBean> events;
-	@Transient
-	Collection<OutilBean> tools;
-	
-	public Collection<OutilBean> getTools() {
-		return tools;
-	}
-	public void setTools(Collection<OutilBean> tools) {
-		this.tools = tools;
-	}
-	public Collection<EvenementBean> getEvents() {
-		return events;
-	}
-	public void setEvents(Collection<EvenementBean> events) {
-		this.events = events;
-	}
 	public Collection<PublicationBean> getPubs() {
 		return pubs;
 	}

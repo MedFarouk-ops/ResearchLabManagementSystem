@@ -10,6 +10,4 @@ import com.example.demo.beans.PublicationBean;
 public interface PublicationProxyService {
 	@GetMapping("/publications/{id}")
 	public PublicationBean findPublicationById(@PathVariable(name = "id") Long id);
-
-
 }

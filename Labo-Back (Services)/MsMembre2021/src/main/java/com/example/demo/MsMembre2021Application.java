@@ -11,16 +11,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-import com.example.demo.beans.EvenementBean;
-import com.example.demo.beans.OutilBean;
 import com.example.demo.beans.PublicationBean;
 import com.example.demo.dao.EtudiantRepository;
 import com.example.demo.dao.MembreRepository;
 import com.example.demo.entities.EnseignantChercheur;
 import com.example.demo.entities.Etudiant;
 import com.example.demo.entities.Member;
-import com.example.demo.proxies.EvenementProxyService;
-import com.example.demo.proxies.OutilProxyService;
 import com.example.demo.proxies.PublicationProxyService;
 import com.example.demo.service.IMemberService;
 
@@ -37,12 +33,7 @@ public class MsMembre2021Application implements CommandLineRunner{
 	IMemberService iMemberService;
 	@Autowired
 	PublicationProxyService publicationProxyService;
-	@Autowired
-	EvenementProxyService evenementProxyService;
-	
-	@Autowired
-	OutilProxyService outilProxyService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(MsMembre2021Application.class, args);
 	}
@@ -74,7 +65,7 @@ public class MsMembre2021Application implements CommandLineRunner{
 		m.setCv("cv1.pdf");
 		iMemberService.updateMember(m);
 		// Delete a Member
-		//iMemberService.deleteMember(2L);
+		iMemberService.deleteMember(2L);
 		
 		iMemberService.affecterencadrantToetudiant(3L, 1L);
 		iMemberService.affecterencadrantToetudiant(4L, 1L);
@@ -100,30 +91,8 @@ public class MsMembre2021Application implements CommandLineRunner{
 		lstpub.forEach(p->
 		System.out.println(p.getTitre()+ " "+p.getType())
 		);
-		EvenementBean event1 = evenementProxyService.findEvenementById(1L);
-		System.out.println(event1.getTitre()+" à "+ event1.getLieu());
 		
-		iMemberService.affecterparticipantToevenement(2L, 1L);
-		iMemberService.affecterparticipantToevenement(2L, 2L);
-		iMemberService.affecterparticipantToevenement(3L, 3L);
 		
-		List<EvenementBean> lstevent = iMemberService.findEvenementparparticipant(2L);
-		lstevent.forEach(e ->
-		System.out.println(e.getTitre()+" à "+ e.getLieu())
-		);
-		
-		OutilBean out=outilProxyService.findOutilById(1L);
-		 System.out.println(out.getSource()+ " "+out.getDate());
-		 
-			
-			iMemberService.affecterutilisateurTooutil(1L, 1L);
-			iMemberService.affecterutilisateurTooutil(2L, 1L);
-			iMemberService.affecterutilisateurTooutil(3L, 1L);
-			
-			List<OutilBean> lsttool = iMemberService.findOutilparutilisateur(3L);
-			lsttool.forEach(e ->
-			System.out.println(e.getSource()+" à "+ e.getDate())
-			);
 		
 		
 	}

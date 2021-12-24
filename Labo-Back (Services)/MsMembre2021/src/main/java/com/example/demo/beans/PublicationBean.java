@@ -3,26 +3,15 @@ package com.example.demo.beans;
 import java.util.Date;
 
 public class PublicationBean {
-	private Long id ;
-	private Date date;
-	private String type,titre,lien,sourcePdf;
+	Long id;
+	String titre;
+	Date dateapparition;
+	String type;
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
 	}
 	public String getTitre() {
 		return titre;
@@ -30,39 +19,28 @@ public class PublicationBean {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public String getLien() {
-		return lien;
+	public Date getDateapparition() {
+		return dateapparition;
 	}
-	public void setLien(String lien) {
-		this.lien = lien;
+	public void setDateapparition(Date dateapparition) {
+		this.dateapparition = dateapparition;
 	}
-	public String getSourcePdf() {
-		return sourcePdf;
+	public String getType() {
+		return type;
 	}
-	public void setSourcePdf(String sourcePdf) {
-		this.sourcePdf = sourcePdf;
-	}
-	public PublicationBean(Long id, Date date, String type, String titre, String lien, String sourcePdf) {
-		super();
-		this.id = id;
-		this.date = date;
+	public void setType(String type) {
 		this.type = type;
+	}
+	public PublicationBean(String titre, Date dateapparition, String type) {
+		super();
 		this.titre = titre;
-		this.lien = lien;
-		this.sourcePdf = sourcePdf;
+		this.dateapparition = dateapparition;
+		this.type = type;
 	}
 	public PublicationBean() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public PublicationBean(Date date, String type, String titre, String lien, String sourcePdf) {
-		super();
-		this.date = date;
-		this.type = type;
-		this.titre = titre;
-		this.lien = lien;
-		this.sourcePdf = sourcePdf;
-	}
-	
 	
 
 }

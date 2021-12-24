@@ -1,20 +1,29 @@
-package com.example.demo.beans;
+package com.example.demo.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class EvenementBean {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Evenement implements Serializable{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	Date dateOutil;
 	String titre, lieu;
-	public EvenementBean(Long id, Date dateOutil, String titre, String lieu) {
+	public Evenement() {
+		super();
+	}
+	public Evenement(Long id, Date dateOutil, String titre, String lieu) {
 		super();
 		this.id = id;
 		this.dateOutil = dateOutil;
 		this.titre = titre;
 		this.lieu = lieu;
-	}
-	public EvenementBean() {
-		super();
 	}
 	public Long getId() {
 		return id;
@@ -40,6 +49,7 @@ public class EvenementBean {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
+	
 	
 	
 }

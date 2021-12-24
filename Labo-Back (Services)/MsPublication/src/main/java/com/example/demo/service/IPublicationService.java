@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.demo.entities.Publication;
 
+
 public interface IPublicationService {
 	public Publication addPublication(Publication p);
 	public void deletePublication(Long id) ;

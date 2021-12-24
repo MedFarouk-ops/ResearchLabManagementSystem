@@ -1,6 +1,5 @@
 package com.example.demo.dao;
 
-
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,5 +11,4 @@ public interface PublicationRepository extends JpaRepository<Publication, Long> 
 	List<Publication> findByType(String type);
 	Publication findByTitre(String titre);
 	Publication findByLien(String lien);
-
 }
