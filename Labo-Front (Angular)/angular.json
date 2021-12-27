@@ -43,7 +43,18 @@
               "./node_modules/vendors/js/vendor.bundle.base.js",
               "./node_modules/vendors/chart.js/Chart.min.js",
               "./node_modules/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js",
-              "./node_modules/vendors/progressbar.js/progressbar.min.js"
+              "./node_modules/vendors/progressbar.js/progressbar.min.js",
+              "vendors/js/vendor.bundle.base.js",
+              "vendors/chart.js/Chart.min.js",
+              "vendors/bootstrap-datepicker/bootstrap-datepicker.min.js",
+              "vendors/progressbar.js/progressbar.min.js",
+              "./public/admin-assets/js/off-canvas.js",
+              "./public/admin-assets/js/hoverable-collapse.js",
+              "./public/admin-assets/js/template.js",
+              "./public/admin-assets/js/settings.js",
+              "./public/admin-assets/js/todolist.js",
+              "./public/admin-assets/js/dashboard.js",
+              "./public/admin-assets/js/Chart.roundedBarCharts.js"
 
             ]
           },

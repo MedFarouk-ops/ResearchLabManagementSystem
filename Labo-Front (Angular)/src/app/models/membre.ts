@@ -3,12 +3,14 @@ export interface Membre {
     nom:string;
     prenom:string;
     email:string;
-    dateNaissance:string;
+    dateNaissance?:Date;
     cin:string;
     cv:string;
-    type_mbr:string;
     password:string;
-    diplome:string;
-    grade:string;
+    diplome?:string;
+    grade?:string;
+    sujet?:string;
+    dateInscription ?: Date;
+    etablissement ?: string;
 }
 

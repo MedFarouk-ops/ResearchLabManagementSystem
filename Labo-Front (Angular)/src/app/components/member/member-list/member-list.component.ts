@@ -18,8 +18,9 @@ export class MemberListComponent implements OnInit {
   dataSource : MatTableDataSource<Membre>;   
 
   membres : Membre[];
+  public nbMembres : number ;
   constructor(private membreService: MembreService , private router: Router ,private dialog : MatDialog) {
-    //this.dataSource = new MatTableDataSource(this.membreService.tab);
+    this.dataSource = new MatTableDataSource(this.membreService.tab);
   }
 
   ngOnInit(): void {
@@ -28,7 +29,9 @@ export class MemberListComponent implements OnInit {
   private getMembers(){
     this.membreService.getMembersList().subscribe(data =>{
       this.membres=data;
-    })
+      this.nbMembres=this.membres.length;
+      this.dataSource.data=data;
+    }) 
   }
 
   // updateMembre(id: number){
@@ -76,13 +79,9 @@ export class MemberListComponent implements OnInit {
   // applyFilter(event: Event) {
   //   const filterValue = (event.target as HTMLInputElement).value;
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
-
   //   if (this.dataSource.paginator) {
   //     this.dataSource.paginator.firstPage();
   //   }
   // }
-
-
-  
   
 }

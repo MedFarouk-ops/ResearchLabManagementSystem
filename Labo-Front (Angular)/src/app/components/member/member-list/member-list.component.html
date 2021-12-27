@@ -70,6 +70,7 @@
                   <th>Type</th>
                   <th>Password</th>
               </tr>
+              
               </thead>
               <tbody>
               <tr *ngFor = "let membre of membres">
@@ -97,20 +98,21 @@
                   <h6 class="text-success">{{membre.cv}}</h6>
                 </td>
                 <div *ngIf="membre.grade != null ; then thenBlock else etudiantBlock"></div>
-                <ng-template #thenBlock>
-                <td>
-                <h6 class="text-success">Enseignant</h6>
-                <p>{{membre.grade}}</p>
-                </td> 
-              </ng-template> 
-              <ng-template #etudiantBlock>    
-                <td>
-                <h6 class="text-success">Etudiant</h6>
-                <p>{{membre.diplome}}</p>    
-                </td>  
-              </ng-template>  
+                  <ng-template #thenBlock>
+                  <td>
+                  <h6 class="text-success">Enseignant</h6>
+                  <!-- <p>{{membre.grade}}</p> -->
+                  </td> 
+                </ng-template> 
+                <ng-template #etudiantBlock>    
+                  <td>
+                  <h6 class="text-success">Etudiant</h6>
+                  <!-- <p>{{membre.diplome}}</p>     -->
+                  </td>  
+                </ng-template>  
                    
                 <td>
+                  <p>--------------------</p>
                   <h6 class="text-success">{{membre.password}}</h6>
                   <p>--------------------</p>
                 </td>

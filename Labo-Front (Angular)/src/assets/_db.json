@@ -2,12 +2,13 @@
     "membre" :
     [
         {
-            "id":"678945",
-            "name":"database membre",
-            "createdDate":"2018-8-18",
-            "cin":"052461",
-            "cv":"cv membre 3",
-            "type":"membre"
+            "id":"string",
+            "nom":"string",
+            "prenom":"string",
+            "email":"string",
+            "cin":"string",
+            "cv":"string",
+            "password":"string"
         }
     ]
 }

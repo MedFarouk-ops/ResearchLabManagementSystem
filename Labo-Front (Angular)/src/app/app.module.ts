@@ -18,6 +18,14 @@ import { LayoutComponent } from './components/member/layout/layout.component';
 import { FirebaseModule } from './firebase/firebase.module';
 import { LoginComponent } from './components/member/login/login.component';
 import { AdminIndexComponent } from './components/admin/admin-index/admin-index.component';
+import { NavbarComponent } from './components/admin/navbar/navbar.component';
+import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
+import { AddEtudiantComponent } from './components/member/add-etudiant/add-etudiant.component';
+import { AddEnseignantComponent } from './components/member/add-enseignant/add-enseignant.component';
+import { NumbersComponent } from './components/admin/numbers/numbers.component';
+import { EventListComponent } from './components/evenement/event-list/event-list.component';
+import { PublicationListComponent } from './components/publication/publication-list/publication-list.component';
+import { OutilListComponent } from './components/outil/outil-list/outil-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +34,14 @@ import { AdminIndexComponent } from './components/admin/admin-index/admin-index.
     LayoutComponent,
     LoginComponent,
     AdminIndexComponent,
+    NavbarComponent,
+    SidebarComponent,
+    AddEtudiantComponent,
+    AddEnseignantComponent,
+    NumbersComponent,
+    EventListComponent,
+    PublicationListComponent,
+    OutilListComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +57,7 @@ import { AdminIndexComponent } from './components/admin/admin-index/admin-index.
     ConfirmDialogModule,
     FirebaseModule
   ],
-  providers: [],
+  providers: [NumbersComponent,MemberListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

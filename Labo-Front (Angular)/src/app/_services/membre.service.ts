@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GLOBAL } from '../app_config';
 import { MemberFormComponent } from '../components/member/member-form/member-form.component';
+import { EnseignementChercheur } from '../models/enseignement-chercheur';
+import { Etudiant } from '../models/etudiant';
 import { Membre } from '../models/membre';
 
 @Injectable({
@@ -12,7 +14,7 @@ export class MembreService {
 
 
   private baseURL="http://localhost:9000/membres";
-  //public tab : Membre[]= GLOBAL._DB.membre;
+  public tab : Membre[]= GLOBAL._DB.membre;
   constructor(private httpClient: HttpClient) { 
   }
   // saveMember(member : Membre) : Promise <Membre> {
@@ -50,5 +52,25 @@ export class MembreService {
   getMembersList(): Observable<any>{
     return this.httpClient.get<any>(`${this.baseURL}`);
   }
+
+  saveMembreEtd(etd: Etudiant): Observable<any>{
+    
+    console.log(etd);
+
+    return this.httpClient.post(`http://localhost:8081/membres/etudiant`, etd , {
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+      })});
+  }
+
+  saveMembreEns(ens: EnseignementChercheur): Observable<Object>{
+    console.log(ens);
+
+    return this.httpClient.post(`http://localhost:8081/membres/enseignant`, ens , {
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+      })});
+  }
+
 
 }

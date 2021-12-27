@@ -11,40 +11,18 @@ import { Membre } from 'src/app/models/membre';
 })
 export class MemberFormComponent implements OnInit {
 
-  form:FormGroup;
-  item1:any;
-
   constructor(private memberService : MembreService , private router : Router , private activatedRoute: ActivatedRoute) { }
 
-  currentId : any ;
+
   ngOnInit(): void {
-    // this.currentId = this.activatedRoute.snapshot.params.id;
-    // if(!! this.currentId) //je suis dans edit //
-    // {
-    //   // this.memberService.getMemberById(this.currentId).then
-    //   // ((item) => {this.item1=item ; 
-    //   // this.initForm(this.item1)})
-    //   // // getElementById  () dans service //
-    // }
-    // else // je suis dans create //
-    // {
-    //   this.initForm(this.item1);
-    // } 
   }
 
-  // initForm(item : Membre):void {
-  //   this.form=new FormGroup({
-  //     cin :  new FormControl(item?.cin , [Validators.required ]),
-  //     name : new FormControl(item?.name , [Validators.required ]),
-  //     cv :   new FormControl(item?.cv, [Validators.required ]),
-  //     type : new FormControl(item?.type, [Validators.required ])
-  //   })
-  // }
-    
-  onSubmit() : void{
-    console.log(this.form.value);
-    const memberToSave = this.form.value;
-    //this.memberService.saveMember(memberToSave).then( () => {this.router.navigate(['members'])} );
+  addEtudiant(){
+    this.router.navigate(['/etudiant']);
   }
+  addEnseignant(){
+    this.router.navigate(['/enseignant']);
+  }
+
 
 }
