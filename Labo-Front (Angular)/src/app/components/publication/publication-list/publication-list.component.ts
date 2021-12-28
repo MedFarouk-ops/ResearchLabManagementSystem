@@ -18,9 +18,9 @@ export class PublicationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getMembers();
+    this.getPublications();
   }
-  private getMembers(){
+  private getPublications(){
     this.ps.getPublicationsList().subscribe(data =>{
       this.pubs=data;
     }) 

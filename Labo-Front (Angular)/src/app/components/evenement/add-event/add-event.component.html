@@ -1,3 +1,4 @@
+
 <div class="container-scroller"> 
     <!-- partial:partials/_navbar.html -->
     <app-navbar></app-navbar>
@@ -30,35 +31,26 @@
                   <!-- number details -->
   
   
-                          <div class="col-md-6 grid-margin stretch-card" style="  margin: auto; 
-                          float: none; 
-                          margin-bottom: 10px;">
+                          <div class="col-md-6 grid-margin stretch-card">
                               <div class="card">
                                 <div class="card-body">
-                                  <h4 class="card-title">Modifier Publication :</h4>
-                                  
-                                  <form  (ngSubmit) = "onSubmit()" class="forms-sample" >
+                                  <h4 class="card-title">Ajouter Evenement :</h4>
+  
+                                  <form #event="ngForm" (ngSubmit) = "onSubmit(event.value)" class="forms-sample" >
   
                                     <div class="form-group">
-                                      <label for="dateapparition">Date Apparition</label>
-                                      <input type="date" class="form-control" id="dateapparition" name="dateapparition"  [(ngModel)] = "pub.dateapparition ">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="type">Type</label>
-                                      <input type="text" class="form-control" id="type" placeholder="type publication" name="type" [(ngModel)] = "pub.type">
+                                      <label for="dateOutil">Date Outils</label>
+                                      <input type="date" class="form-control" id="dateOutil" name="dateOutil"  ngModel>
                                     </div>
                                     <div class="form-group">
                                       <label for="titre">Titre</label>
-                                      <input type="text" class="form-control" id="titre" placeholder="Titre publication" name="titre" [(ngModel)] = "pub.titre">
+                                      <input type="text" class="form-control" id="titre" placeholder="titre Evenement" name="titre" ngModel>
                                     </div>
                                     <div class="form-group">
-                                      <label for="lien">Lien</label>
-                                      <input type="text" class="form-control" id="lien" placeholder="Lien Publication" name="lien" [(ngModel)] = "pub.lien">
+                                      <label for="lieu">lieu</label>
+                                      <input type="text" class="form-control" id="lieu" placeholder="Lieu Evenement" name="lieu" ngModel>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="sourcePdf">sourcePdf</label>
-                                        <input type="text" class="form-control" id="sourcePdf" placeholder="sourcePdf" name="sourcePdf" [(ngModel)] = "pub.sourcePdf">
-                                    </div>
+
                                     <button type="submit" class="btn btn-primary me-2" >Submit</button>
                                     <button class="btn btn-light">Cancel</button>
                                   </form>

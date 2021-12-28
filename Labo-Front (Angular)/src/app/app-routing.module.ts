@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminIndexComponent } from './components/admin/admin-index/admin-index.component';
+import { AddEventComponent } from './components/evenement/add-event/add-event.component';
+import { EditEventComponent } from './components/evenement/edit-event/edit-event.component';
 import { EventListComponent } from './components/evenement/event-list/event-list.component';
 import { AddEnseignantComponent } from './components/member/add-enseignant/add-enseignant.component';
 import { AddEtudiantComponent } from './components/member/add-etudiant/add-etudiant.component';
@@ -55,6 +57,14 @@ const routes: Routes = [
   { path:"evenement" ,
   pathMatch:"full" ,
   component: EventListComponent 
+  },
+  { path:"evenement/add" ,
+  pathMatch:"full" ,
+  component: AddEventComponent 
+  },
+  { path:"evenement/edit/:id" ,
+  pathMatch:"full" ,
+  component: EditEventComponent 
   },
 
   //******************************** */

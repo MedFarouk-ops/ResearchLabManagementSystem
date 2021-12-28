@@ -30,6 +30,10 @@ import { EditEtudiantComponent } from './components/member/edit-etudiant/edit-et
 import { EditEnseignantComponent } from './components/member/edit-enseignant/edit-enseignant.component';
 import { AddPubComponent } from './components/publication/add-pub/add-pub.component';
 import { EditPubComponent } from './components/publication/edit-pub/edit-pub.component';
+import { AddEventComponent } from './components/evenement/add-event/add-event.component';
+import { EditEventComponent } from './components/evenement/edit-event/edit-event.component';
+import { AddOutilComponent } from './components/outil/add-outil/add-outil.component';
+import { EditOutilComponent } from './components/outil/edit-outil/edit-outil.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +54,10 @@ import { EditPubComponent } from './components/publication/edit-pub/edit-pub.com
     EditEnseignantComponent,
     AddPubComponent,
     EditPubComponent,
+    AddEventComponent,
+    EditEventComponent,
+    AddOutilComponent,
+    EditOutilComponent,
   ],
   imports: [
     BrowserModule,
