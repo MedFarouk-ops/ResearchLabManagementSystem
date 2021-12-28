@@ -34,11 +34,14 @@ export class PublicationListComponent implements OnInit {
         
         this.ps.deletePublication(id).subscribe( data => {
           console.log(data);
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/publication']);
         })
 
         console.log("deleted") }}
     )
+  }
+  edit(id : any){
+    this.router.navigate(['publication/edit', id]);
   }
 
 

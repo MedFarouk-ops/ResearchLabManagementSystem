@@ -10,6 +10,8 @@ import { LoginComponent } from './components/member/login/login.component';
 import { MemberFormComponent } from './components/member/member-form/member-form.component';
 import { MemberListComponent } from './components/member/member-list/member-list.component';
 import { OutilListComponent } from './components/outil/outil-list/outil-list.component';
+import { AddPubComponent } from './components/publication/add-pub/add-pub.component';
+import { EditPubComponent } from './components/publication/edit-pub/edit-pub.component';
 import { PublicationListComponent } from './components/publication/publication-list/publication-list.component';
 
 const routes: Routes = [
@@ -24,41 +26,57 @@ const routes: Routes = [
     pathMatch:"full" ,
     component: AdminIndexComponent 
   },
+  
+  // Route de Membres :
+
   { path:"members" ,
     pathMatch:"full" ,
     component: MemberListComponent 
   },
   { path:"etudiant" ,
-    pathMatch:"full" ,
-    component: AddEtudiantComponent 
+  pathMatch:"full" ,
+  component: AddEtudiantComponent 
   },
   { path:"enseignant" ,
   pathMatch:"full" ,
   component: AddEnseignantComponent 
   },
+  {path: 'edit-ens/:id',
+  component: EditEnseignantComponent},
+  {path: 'edit-etd/:id',
+  component: EditEtudiantComponent},
+  { path:"form" ,
+  pathMatch:"full" ,
+  component: MemberFormComponent 
+  },
+  //******************************** */
+
+  // Route de Evenement : 
   { path:"evenement" ,
   pathMatch:"full" ,
   component: EventListComponent 
   },
+
+  //******************************** */
+
+  // Route de Publication :
   { path:"publication" ,
   pathMatch:"full" ,
   component: PublicationListComponent 
   },
+  {path: 'publication/add',
+  component: AddPubComponent},
+  {path: 'publication/edit/:id',
+  component: EditPubComponent},
+  
+  //******************************** */
+
+  // Route de Outils :
   { path:"outil" ,
   pathMatch:"full" ,
   component: OutilListComponent 
   },
-  { path:"form" ,
-    pathMatch:"full" ,
-    component: MemberFormComponent 
-  },
-  {path: 'edit-ens/:id',
-  component: EditEnseignantComponent},
-  
-  {path: 'edit-etd/:id',
-  component: EditEtudiantComponent},
-  
-
+  //******************************** */
   { path:"**" ,
     redirectTo :"members" 
   },

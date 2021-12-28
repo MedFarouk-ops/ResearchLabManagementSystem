@@ -1,1 +1,86 @@
 <p>edit-pub works!</p>
+
+<div class="container-scroller"> 
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <app-sidebar></app-sidebar>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-10">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                  <!-- number details -->
+                    <app-numbers></app-numbers>
+                  <!-- number details -->
+  
+  
+                          <div class="col-md-6 grid-margin stretch-card">
+                              <div class="card">
+                                <div class="card-body">
+                                  <h4 class="card-title">Modifier Publication :</h4>
+                                  
+                                  <form  (ngSubmit) = "onSubmit()" class="forms-sample" >
+  
+                                    <div class="form-group">
+                                      <label for="dateapparition">Date Apparition</label>
+                                      <input type="date" class="form-control" id="dateapparition" name="dateapparition"  [(ngModel)] = "pub.dateapparition">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="type">Type</label>
+                                      <input type="text" class="form-control" id="type" placeholder="type publication" name="type" [(ngModel)] = "pub.type">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="titre">Titre</label>
+                                      <input type="text" class="form-control" id="titre" placeholder="Titre publication" name="titre" [(ngModel)] = "pub.titre">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="lien">Lien</label>
+                                      <input type="text" class="form-control" id="lien" placeholder="Lien Publication" name="lien" [(ngModel)] = "pub.lien">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sourcePdf">sourcePdf</label>
+                                        <input type="text" class="form-control" id="sourcePdf" placeholder="sourcePdf" name="sourcePdf" [(ngModel)] = "pub.sourcePdf">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary me-2" >Submit</button>
+                                    <button class="btn btn-light">Cancel</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+            </div>
+            </footer>
+            <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+            </div>

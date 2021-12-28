@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ConfirmDialogComponent implements OnInit {
 
-  title = " Êtes-vous sûr de vouloir supprimer ce membre ?";
+  title = " Êtes-vous sûr de cette Action ?";
   message = " this action is irreversible ";
   cancel = "No";
   confirm = "Yes ";

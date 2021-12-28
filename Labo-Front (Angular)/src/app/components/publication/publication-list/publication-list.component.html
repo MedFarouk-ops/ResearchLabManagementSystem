@@ -55,7 +55,7 @@
                                  <p class="card-subtitle card-subtitle-dash">tableau de publications :</p>
                                 </div>
                                 <div>
-                                  <button class="btn btn-info btn-lg text-white mb-0 me-0" type="button" routerLink="/form" ><i class="mdi mdi-account-plus"></i>Ajouter une publication</button>
+                                  <button class="btn btn-info btn-lg text-white mb-0 me-0" type="button" routerLink="/publication/add" ><i class="mdi mdi-account-plus"></i>Ajouter une publication</button>
                                 </div>
                               </div>
                               <div class="table-responsive  mt-1" >
@@ -68,6 +68,7 @@
                   <th>Titre</th>
                   <th>Lien</th>
                   <th>PDF</th>
+                  <th>ACTION</th>
               </tr>
               
               </thead>
@@ -81,7 +82,7 @@
                 </div>
                 </td>
                   <td>
-                  <h6>{{pub.dateapparition}}</h6>
+                  <h6>{{pub.dateapparition | date: 'dd-MM-yyyy'}}</h6>
                   </td>
                   <td>
                   <h6 >{{pub.type}}</h6>
@@ -96,6 +97,7 @@
                   <h6 class="text-success">{{pub.sourcePdf}}</h6>
                 </td>
                 <td> 
+                  <button  class="btn btn-info" (click)="edit(pub.id)" ><i class="mdi mdi-lead-pencil"></i></button>
                   <button  class="btn" (click)="deletePublication(pub.id)"><i class="mdi mdi-delete"></i></button>
                   <button  class="btn btn-warning">Aff.</button>
               </td>
