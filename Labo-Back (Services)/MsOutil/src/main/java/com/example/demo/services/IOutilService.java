@@ -1,8 +1,8 @@
-package com.example.service;
+package com.example.demo.services;
 
 import java.util.List;
 
-import com.example.entities.Outil;
+import com.example.demo.entities.Outil;
 
 public interface IOutilService {
 	public Outil addOutil(Outil p);

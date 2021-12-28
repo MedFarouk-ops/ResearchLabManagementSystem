@@ -25,11 +25,11 @@ RepositoryRestConfiguration repositoryRestConfig;
 
 	@Override
 	public void run(String... args) throws Exception {
-		repositoryRestConfig.exposeIdsFor(Publication.class);
-		Publication pub1= new Publication("service oriented architecture", null,"book");
-		publicationRepository.save(pub1);
-		Publication pub2= new Publication("bitcoin", null,"white paper");
-		publicationRepository.save(pub2);
+//		repositoryRestConfig.exposeIdsFor(Publication.class);
+//		Publication pub1= new Publication("service oriented architecture", null,"book");
+//		publicationRepository.save(pub1);
+//		Publication pub2= new Publication("bitcoin", null,"white paper");
+//		publicationRepository.save(pub2);
 		
 	}
 

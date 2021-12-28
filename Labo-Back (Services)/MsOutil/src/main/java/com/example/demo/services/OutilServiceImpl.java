@@ -1,14 +1,15 @@
-package com.example.service;
+package com.example.demo.services;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.dao.OutilRepository;
-import com.example.entities.Outil;
+
+import com.example.demo.dao.OutilRepository;
+import com.example.demo.entities.Outil;
 
 @Service
-public class OutilImpl implements IOutilService{
-
+public class OutilServiceImpl implements IOutilService{
 	@Autowired
 	OutilRepository outilRepository ;
 	
@@ -46,5 +47,4 @@ public class OutilImpl implements IOutilService{
 	public Outil findBySource(String source) {
 		return  outilRepository.findBySource(source);
 	}
-
 }
