@@ -13,7 +13,7 @@ import { Membre } from '../models/membre';
 export class MembreService {
 
 
-  private baseURL="http://localhost:8081/membres";
+  private baseURL="http://localhost:8081/api/membres";
   public tab : Membre[]= GLOBAL._DB.membre;
   constructor(private httpClient: HttpClient) { 
   }
@@ -55,7 +55,7 @@ export class MembreService {
     
     console.log(etd);
 
-    return this.httpClient.post(`http://localhost:8081/membres/etudiant`, etd , {
+    return this.httpClient.post(`${this.baseURL}/etudiant`, etd , {
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
       })});
@@ -64,14 +64,14 @@ export class MembreService {
   saveMembreEns(ens: EnseignementChercheur): Observable<Object>{
     console.log(ens);
 
-    return this.httpClient.post(`http://localhost:8081/membres/enseignant`, ens , {
+    return this.httpClient.post(`${this.baseURL}/enseignant`, ens , {
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
       })});
   }
 
   deleteMembre(id: any): Observable<Object>{
-    return this.httpClient.delete(`http://localhost:8081/membres/${id}`);
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 
   // Get Members By Id :
@@ -87,11 +87,11 @@ export class MembreService {
   // Update Members functions :
   
   updateMemberEns(id: string, ens: EnseignementChercheur): Observable<Object>{
-    return this.httpClient.put(`http://localhost:8081/membres/enseignant/${id}`, ens);
+    return this.httpClient.put(`${this.baseURL}/enseignant/${id}`, ens);
   }
   
   updateMemberEtd(id: string, etd: Etudiant): Observable<Object>{
-    return this.httpClient.put(`http://localhost:8081/membres/etudiant/${id}`, etd);
+    return this.httpClient.put(`${this.baseURL}/etudiant/${id}`, etd);
   }
 
 }

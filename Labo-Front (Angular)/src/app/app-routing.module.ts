@@ -11,6 +11,8 @@ import { EditEtudiantComponent } from './components/member/edit-etudiant/edit-et
 import { LoginComponent } from './components/member/login/login.component';
 import { MemberFormComponent } from './components/member/member-form/member-form.component';
 import { MemberListComponent } from './components/member/member-list/member-list.component';
+import { AddOutilComponent } from './components/outil/add-outil/add-outil.component';
+import { EditOutilComponent } from './components/outil/edit-outil/edit-outil.component';
 import { OutilListComponent } from './components/outil/outil-list/outil-list.component';
 import { AddPubComponent } from './components/publication/add-pub/add-pub.component';
 import { EditPubComponent } from './components/publication/edit-pub/edit-pub.component';
@@ -86,6 +88,10 @@ const routes: Routes = [
   pathMatch:"full" ,
   component: OutilListComponent 
   },
+  {path: 'outil/add',
+  component: AddOutilComponent},
+  {path: 'outil/edit/:id',
+  component: EditOutilComponent},
   //******************************** */
   { path:"**" ,
     redirectTo :"members" 
