@@ -1,0 +1,113 @@
+<div class="container-scroller"> 
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <app-sidebar></app-sidebar>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="home-tab">
+                <div class="d-sm-flex align-items-center justify-content-between border-bottom">
+                  <div>
+                    <div class="btn-wrapper">
+                      <a href="#" class="btn btn-otline-dark align-items-center"><i class="icon-share"></i> Share</a>
+                      <a href="#" class="btn btn-otline-dark"><i class="icon-printer"></i> Print</a>
+                      <a href="#" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-content tab-content-basic">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                  <!-- number details -->
+                    <app-numbers></app-numbers>
+                  <!-- number details -->
+                    
+
+                    <div class="col-md-6 grid-margin stretch-card">
+                        <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Modifier Etudiant :</h4>
+                            
+                            <form  (ngSubmit) = "onSubmit()" class="forms-sample" >
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom"  [(ngModel)] = "etd.nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prenom</label>
+                                <input type="text" class="form-control" id="prenom" placeholder="Prenom" name="prenom" [(ngModel)] = "etd.prenom">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)] = "etd.email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateNaissance">Date Naissance</label>
+                                <input type="date" class="form-control" id="dateNaissance" name="dateNaissance"  [(ngModel)] = "etd.dateNaissance">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cin">CIN</label>
+                                <input type="text" class="form-control" id="cin" placeholder="CIN" name="cin" [(ngModel)] = "etd.cin">
+                            </div>
+                            <div class="form-group">
+                                <label for="cin">CV</label>
+                                <input type="text" class="form-control" id="cv" placeholder="CV" name="cv" [(ngModel)] = "etd.cv">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="diplome">Diplome</label>
+                                <input type="text" class="form-control" id="diplome" placeholder="Diplome" name="diplome" [(ngModel)] = "etd.diplome">
+                              </div>
+                            
+
+                              <div class="form-group">
+                                <label for="dateInscription">Date Inscription</label>
+                                <input type="date" class="form-control" name="dateInscription"  [(ngModel)] = "etd.dateInscription">
+                              </div>
+                              <div class="form-group">
+                                <label for="sujet">Sujet</label>
+                                <input type="text" class="form-control" id="sujet" placeholder="Sujet" name="sujet" [(ngModel)] = "etd.sujet">
+                              </div>
+
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)] = "etd.password">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary me-2" >Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+<!-- content-wrapper ends -->
+<!-- partial:partials/_footer.html -->
+<footer class="footer">
+<div class="d-sm-flex justify-content-center justify-content-sm-between">
+<span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+</div>
+</footer>
+<!-- partial -->
+</div>
+<!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>

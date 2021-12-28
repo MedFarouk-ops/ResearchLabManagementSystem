@@ -13,7 +13,7 @@ import { Membre } from '../models/membre';
 export class MembreService {
 
 
-  private baseURL="http://localhost:9000/membres";
+  private baseURL="http://localhost:8081/membres";
   public tab : Membre[]= GLOBAL._DB.membre;
   constructor(private httpClient: HttpClient) { 
   }
@@ -43,16 +43,14 @@ export class MembreService {
   // getAllMembers() : Promise <Membre[]> {
   //   //return this.httpClient.get<Membre[]> ("link to rest api").toPromise();
   //   return new Promise(resolve => resolve(this.tab));
-  
   // }
-  // // deleteMembreById(id : string) : Promise<Membre>{
-    
-  // // }
+
 
   getMembersList(): Observable<any>{
     return this.httpClient.get<any>(`${this.baseURL}`);
   }
 
+  // save member :
   saveMembreEtd(etd: Etudiant): Observable<any>{
     
     console.log(etd);
@@ -72,5 +70,28 @@ export class MembreService {
       })});
   }
 
+  deleteMembre(id: any): Observable<Object>{
+    return this.httpClient.delete(`http://localhost:8081/membres/${id}`);
+  }
+
+  // Get Members By Id :
+
+  getEnsById(id: string): Observable<EnseignementChercheur>{
+    return this.httpClient.get<EnseignementChercheur>(`${this.baseURL}/${id}`);
+  }
+
+  getEtdById(id: string): Observable<Etudiant>{
+    return this.httpClient.get<Etudiant>(`${this.baseURL}/${id}`);
+  }
+  
+  // Update Members functions :
+  
+  updateMemberEns(id: string, ens: EnseignementChercheur): Observable<Object>{
+    return this.httpClient.put(`http://localhost:8081/membres/enseignant/${id}`, ens);
+  }
+  
+  updateMemberEtd(id: string, etd: Etudiant): Observable<Object>{
+    return this.httpClient.put(`http://localhost:8081/membres/etudiant/${id}`, etd);
+  }
 
 }

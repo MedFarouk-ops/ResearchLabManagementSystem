@@ -68,7 +68,7 @@
                   <th>Cin</th>
                   <th>CV</th>
                   <th>Type</th>
-                  <th>Password</th>
+                  <th>Action</th>
               </tr>
               
               </thead>
@@ -98,24 +98,31 @@
                   <h6 class="text-success">{{membre.cv}}</h6>
                 </td>
                 <div *ngIf="membre.grade != null ; then thenBlock else etudiantBlock"></div>
-                  <ng-template #thenBlock>
-                  <td>
-                  <h6 class="text-success">Enseignant</h6>
-                  <!-- <p>{{membre.grade}}</p> -->
-                  </td> 
-                </ng-template> 
-                <ng-template #etudiantBlock>    
-                  <td>
-                  <h6 class="text-success">Etudiant</h6>
-                  <!-- <p>{{membre.diplome}}</p>     -->
-                  </td>  
-                </ng-template>  
-                   
+                <ng-template #thenBlock>
                 <td>
-                  <p>--------------------</p>
-                  <h6 class="text-success">{{membre.password}}</h6>
-                  <p>--------------------</p>
-                </td>
+                <h6 class="text-success">Enseignant</h6>
+                <p>{{membre.grade}}</p>
+                </td> 
+              </ng-template> 
+              <ng-template #etudiantBlock>    
+                <td>
+                <h6 class="text-success">Etudiant</h6>
+                <p>{{membre.diplome}}</p>    
+                </td>  
+              </ng-template>
+
+
+                <td>
+                <div *ngIf="membre.grade != null ; then actionthenBlock else actionetudiantBlock"></div>
+                <ng-template #actionthenBlock>
+                <button  class="btn btn-info" (click)="editEnseignant(membre.id)" ><i class="mdi mdi-lead-pencil"></i></button>
+                </ng-template> 
+                <ng-template #actionetudiantBlock>    
+                  <button  class="btn btn-info" (click)="editEtudiant(membre.id)" ><i class="mdi mdi-lead-pencil"></i></button>  
+                </ng-template>  
+                  <button  class="btn" (click)="deleteMembre(membre.id)"><i class="mdi mdi-delete"></i></button>
+                  <button  class="btn btn-warning">Aff.</button>
+              </td>
 
             </tr>                                      
   </tbody>

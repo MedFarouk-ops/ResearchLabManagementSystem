@@ -4,6 +4,8 @@ import { AdminIndexComponent } from './components/admin/admin-index/admin-index.
 import { EventListComponent } from './components/evenement/event-list/event-list.component';
 import { AddEnseignantComponent } from './components/member/add-enseignant/add-enseignant.component';
 import { AddEtudiantComponent } from './components/member/add-etudiant/add-etudiant.component';
+import { EditEnseignantComponent } from './components/member/edit-enseignant/edit-enseignant.component';
+import { EditEtudiantComponent } from './components/member/edit-etudiant/edit-etudiant.component';
 import { LoginComponent } from './components/member/login/login.component';
 import { MemberFormComponent } from './components/member/member-form/member-form.component';
 import { MemberListComponent } from './components/member/member-list/member-list.component';
@@ -50,11 +52,13 @@ const routes: Routes = [
     pathMatch:"full" ,
     component: MemberFormComponent 
   },
-  { path:":id/edit" ,
-    pathMatch:"full" ,
-    component: MemberFormComponent 
-  },
+  {path: 'edit-ens/:id',
+  component: EditEnseignantComponent},
   
+  {path: 'edit-etd/:id',
+  component: EditEtudiantComponent},
+  
+
   { path:"**" ,
     redirectTo :"members" 
   },

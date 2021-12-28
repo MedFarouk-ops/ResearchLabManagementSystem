@@ -26,6 +26,10 @@ import { NumbersComponent } from './components/admin/numbers/numbers.component';
 import { EventListComponent } from './components/evenement/event-list/event-list.component';
 import { PublicationListComponent } from './components/publication/publication-list/publication-list.component';
 import { OutilListComponent } from './components/outil/outil-list/outil-list.component';
+import { EditEtudiantComponent } from './components/member/edit-etudiant/edit-etudiant.component';
+import { EditEnseignantComponent } from './components/member/edit-enseignant/edit-enseignant.component';
+import { AddPubComponent } from './components/publication/add-pub/add-pub.component';
+import { EditPubComponent } from './components/publication/edit-pub/edit-pub.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +46,10 @@ import { OutilListComponent } from './components/outil/outil-list/outil-list.com
     EventListComponent,
     PublicationListComponent,
     OutilListComponent,
+    EditEtudiantComponent,
+    EditEnseignantComponent,
+    AddPubComponent,
+    EditPubComponent,
   ],
   imports: [
     BrowserModule,

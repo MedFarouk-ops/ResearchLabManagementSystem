@@ -34,9 +34,6 @@ export class MemberListComponent implements OnInit {
     }) 
   }
 
-  // updateMembre(id: number){
-  //   this.router.navigate(['edit-voucher', id]);
-  // }
 
   // addMembre(){
   //   this.router.navigate(['add-voucher']);
@@ -68,13 +65,28 @@ export class MemberListComponent implements OnInit {
   //   this.membreService.getAllMembers().then((data) => this.dataSource );
   // }
 
-  // OnRemove(id : string) : void {
-  //   // this.ms.RemoveMemberById(id).then(() => {this.getAllMembers();});
-  //   const dialogRef = this.dialog.open(ConfirmDialogComponent,{});
-  //   dialogRef.afterClosed().subscribe( 
-  //     isDeleteConfirmed =>{ if (isDeleteConfirmed){ /* appel code de suppression */ }}
-  //   )
-  // }
+  deleteMembre(id : any) : void {
+    // this.ms.RemoveMemberById(id).then(() => {this.getAllMembers();});
+    const dialogRef = this.dialog.open(ConfirmDialogComponent,{});
+    dialogRef.afterClosed().subscribe( 
+      isDeleteConfirmed =>{ if (isDeleteConfirmed){ 
+        
+        this.membreService.deleteMembre(id).subscribe( data => {
+          console.log(data);
+          this.router.navigate(['/admin']);
+        })
+
+        console.log("deleted") }}
+    )
+  }
+
+  editEtudiant(id : any){
+    this.router.navigate(['edit-etd', id]);
+  }
+
+  editEnseignant(id : any){
+    this.router.navigate(['edit-ens', id]);
+  }
 
   // applyFilter(event: Event) {
   //   const filterValue = (event.target as HTMLInputElement).value;
