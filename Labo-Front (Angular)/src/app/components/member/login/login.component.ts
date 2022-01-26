@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   successRedirect(): void {
     // noinspection JSIgnoredPromiseFromCall
-    this.ngZone.run(() => this.router.navigate(['/admin']));
+    this.ngZone.run(() => this.router.navigate(['/selection']));
   }
 
 }

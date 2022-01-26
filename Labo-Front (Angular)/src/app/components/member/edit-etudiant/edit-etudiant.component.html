@@ -61,11 +61,19 @@
                                 <label for="cin">CIN</label>
                                 <input type="text" class="form-control" id="cin" placeholder="CIN" name="cin" [(ngModel)] = "etd.cin">
                             </div>
-                            <div class="form-group">
+                            <fieldset>
+                              <div class="form-group">
                                 <label for="cin">CV</label>
-                                <input type="text" class="form-control" id="cv" placeholder="CV" name="cv" [(ngModel)] = "etd.cv">
+                                  <input type="file" (change)="onUploadFiles($event)" name="files" multiple class="form-control" />
+                              </div>
+                            </fieldset>
+                            <div *ngIf="fileStatus.status==='progress'">
+                                <div class="progress">
+                                  <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                      {{ fileStatus.requestType }} {{ fileStatus.percent }} 
+                                    </div>
                             </div>
-                            
+                            </div>
                             <div class="form-group">
                                 <label for="diplome">Diplome</label>
                                 <input type="text" class="form-control" id="diplome" placeholder="Diplome" name="diplome" [(ngModel)] = "etd.diplome">
@@ -88,7 +96,7 @@
                             </div>
                             
                             <button type="submit" class="btn btn-primary me-2" >Submit</button>
-                            <button class="btn btn-light">Cancel</button>
+                            <button class="btn btn-light" (click)="goToMemberList()" >Cancel</button>
                             </form>
                         </div>
                         </div>

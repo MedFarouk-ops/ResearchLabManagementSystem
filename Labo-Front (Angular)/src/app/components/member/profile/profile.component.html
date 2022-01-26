@@ -1,0 +1,126 @@
+
+<div class="container-scroller"> 
+    <!-- partial:partials/_navbar.html -->
+    <app-navbar></app-navbar>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <app-sidebar></app-sidebar>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                  <div class="home-tab">
+                    <div class="tab-content tab-content-basic">
+                      <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                      <!-- number details -->
+                        <app-numbers></app-numbers>
+                      <!-- number details -->
+                        <div class="row">
+                          <div class="col-lg-12 d-flex flex-column">
+                            
+                            <div class="row flex-grow">
+                              <div class="col-12 grid-margin stretch-card">
+                                <div class="card card-rounded table-darkBGImg">
+                                  <div class="card-body">
+                                    <div class="col-sm-8">
+                                      <h3 class="text-white upgrade-info mb-0">
+                      
+                                         Une petite <span class="fw-bold">impatience</span> ruine un grand projet
+                                      </h3>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+              
+<!-- Student Profile -->
+<div class="student-profile py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-transparent text-center">
+              <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
+              <h3>{{membre.nom}} {{membre.prenom}}</h3>
+            </div>
+            <div class="card-body">
+              <p class="mb-0"><strong class="pr-1"> ID:</strong>{{membre.id}}</p>
+              <p class="mb-0"><strong class="pr-1">Grade | Diplome:</strong>{{membre.grade}} {{membre.diplome}}</p>
+              <p class="mb-0"><strong class="pr-1">Etablissement | Sujet:</strong>{{membre.etablissement}} {{membre.sujet}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Informations Générales</h3>
+            </div>
+            <div class="card-body pt-0">
+              <table class="table table-bordered">
+                <tr>
+                  <th width="30%">Id</th>
+                  <td width="2%">:</td>
+                  <td>{{membre.id}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Nom	</th>
+                  <td width="2%">:</td>
+                  <td>{{membre.nom}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Prenom</th>
+                  <td width="2%">:</td>
+                  <td>{{membre.prenom}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Email</th>
+                  <td width="2%">:</td>
+                  <td>{{membre.email}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">CIN</th>
+                  <td width="2%">:</td>
+                  <td>{{membre.cin}}</td>
+                </tr>
+                <tr>
+                    <th width="30%">TYPE : </th>  
+                <div *ngIf="membre.grade != null ; then thenBlock else etudiantBlock"></div>
+                <ng-template #thenBlock>
+                    <td width="2%">:</td>
+                    <td> Enseignant : {{membre.grade}}</td>
+              </ng-template> 
+                <ng-template #etudiantBlock>    
+                    <td width="2%">:</td>
+                    <td>Etudiant : {{membre.diplome}}</td>    
+                    
+                </ng-template>
+
+
+                  <tr>
+                    <th width="30%">Date Naissance</th>
+                    <td width="2%">:</td>
+                    <td>{{membre.dateNaissance}}</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</div>

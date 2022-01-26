@@ -11,12 +11,19 @@ import { EditEtudiantComponent } from './components/member/edit-etudiant/edit-et
 import { LoginComponent } from './components/member/login/login.component';
 import { MemberFormComponent } from './components/member/member-form/member-form.component';
 import { MemberListComponent } from './components/member/member-list/member-list.component';
+import { ProfileComponent } from './components/member/profile/profile.component';
+import { MemberHomeComponent } from './components/membres/member-home/member-home.component';
 import { AddOutilComponent } from './components/outil/add-outil/add-outil.component';
 import { EditOutilComponent } from './components/outil/edit-outil/edit-outil.component';
 import { OutilListComponent } from './components/outil/outil-list/outil-list.component';
 import { AddPubComponent } from './components/publication/add-pub/add-pub.component';
 import { EditPubComponent } from './components/publication/edit-pub/edit-pub.component';
 import { PublicationListComponent } from './components/publication/publication-list/publication-list.component';
+import { SelectRoleComponent } from './components/select-role/select-role.component';
+import { VisitorEventComponent } from './components/visitor/visitor-event/visitor-event.component';
+import { VisitorHomeComponent } from './components/visitor/visitor-home/visitor-home.component';
+import { VisitorMembresPubsComponent } from './components/visitor/visitor-membres-pubs/visitor-membres-pubs.component';
+import { VisitorMembresToolsComponent } from './components/visitor/visitor-membres-tools/visitor-membres-tools.component';
 
 const routes: Routes = [
   { path:"" ,
@@ -41,6 +48,13 @@ const routes: Routes = [
   pathMatch:"full" ,
   component: AddEtudiantComponent 
   },
+
+  { path:"profile/:id" ,
+  pathMatch:"full" ,
+  component: ProfileComponent 
+  },
+  
+
   { path:"enseignant" ,
   pathMatch:"full" ,
   component: AddEnseignantComponent 
@@ -93,6 +107,39 @@ const routes: Routes = [
   {path: 'outil/edit/:id',
   component: EditOutilComponent},
   //******************************** */
+   // Route de Selection :
+   { path:"selection" ,
+   pathMatch:"full" ,
+   component: SelectRoleComponent 
+   },
+   //******************************** */
+   // Route de Membres :
+   { path:"membre-home" ,
+   pathMatch:"full" ,
+   component: MemberHomeComponent 
+   },
+   //******************************** */
+ 
+   // Route de Visiteurs :
+   { path:"visiteur" ,
+   pathMatch:"full" ,
+   component: VisitorHomeComponent 
+   },
+   { path:"visiteur-membre-pubs" ,
+   pathMatch:"full" ,
+   component:  VisitorMembresPubsComponent
+   },
+   { path:"visiteur-membre-tools" ,
+   pathMatch:"full" ,
+   component:  VisitorMembresToolsComponent
+   },
+   { path:"visiteur-event" ,
+   pathMatch:"full" ,
+   component:  VisitorEventComponent
+   },
+   //******************************** */
+ 
+ 
   { path:"**" ,
     redirectTo :"members" 
   },

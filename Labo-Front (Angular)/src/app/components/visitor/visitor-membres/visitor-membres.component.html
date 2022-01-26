@@ -1,0 +1,60 @@
+  <table  class="table select-table" *ngIf="membres.length > 0">
+    <thead>
+             <tr>
+                  <th>Member ID</th>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Email</th>
+                  <th>Cin</th>
+                  <th>CV</th>
+                  <th>Type</th>
+              </tr>
+              
+              </thead>
+              <tbody>
+              <tr *ngFor = "let membre of membres">
+                  
+                  <td>
+                  <div class="d-flex ">
+                  <div>
+                  <h6>{{membre.id}}</h6>
+                </div>
+                </div>
+                </td>
+                  <td>
+                  <h6>{{membre.nom}}</h6>
+                  </td>
+                  <td>
+                  <h6 >{{membre.prenom}}</h6>
+                </td>
+                <td>
+                  <h6 class="text-success">{{membre.email}}</h6>
+                </td>
+                <td>
+                  <h6 class="text-warning">{{membre.cin}}</h6>
+                </td>
+                <td>
+                  <div *ngIf="membre.cv.length >0 ; else elseBlock">             
+                         <button  class="btn btn-info" (click)="onDownloadFile(membre.cv)" ><i class="mdi mdi-arrow-down-bold-circle-outline"></i></button>
+                  </div>
+                  <ng-template #elseBlock>                
+                      <button  class="btn btn-info" (click)="onDownloadFile(membre.cv)" disabled><i class="mdi mdi-arrow-down-bold-circle-outline"></i></button>
+                  </ng-template>
+                </td>
+                <div *ngIf="membre.grade != null ; then thenBlock else etudiantBlock"></div>
+                <ng-template #thenBlock>
+                <td>
+                <h6 class="text-success">Enseignant</h6>
+                <p>{{membre.grade}}</p>
+                </td> 
+              </ng-template> 
+              <ng-template #etudiantBlock>    
+                <td>
+                <h6 class="text-success">Etudiant</h6>
+                <p>{{membre.diplome}}</p>    
+                </td>  
+              </ng-template>
+
+            </tr>                                      
+  </tbody>
+</table> 

@@ -95,7 +95,12 @@
                   <h6 class="text-warning">{{membre.cin}}</h6>
                 </td>
                 <td>
-                  <h6 class="text-success">{{membre.cv}}</h6>
+                  <div *ngIf="membre.cv.length >0 ; else elseBlock">             
+                         <button  class="btn btn-info" (click)="onDownloadFile(membre.cv)" ><i class="mdi mdi-arrow-down-bold-circle-outline"></i></button>
+                  </div>
+                  <ng-template #elseBlock>                
+                      <button  class="btn btn-info" (click)="onDownloadFile(membre.cv)" disabled><i class="mdi mdi-arrow-down-bold-circle-outline"></i></button>
+                  </ng-template>
                 </td>
                 <div *ngIf="membre.grade != null ; then thenBlock else etudiantBlock"></div>
                 <ng-template #thenBlock>
@@ -121,7 +126,7 @@
                   <button  class="btn btn-info" (click)="editEtudiant(membre.id)" ><i class="mdi mdi-lead-pencil"></i></button>  
                 </ng-template>  
                   <button  class="btn" (click)="deleteMembre(membre.id)"><i class="mdi mdi-delete"></i></button>
-                  <button  class="btn btn-warning">Aff.</button>
+                  <button  class="btn btn-warning" (click)="showProfile(membre.id)">Aff.</button>
               </td>
 
             </tr>                                      

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GLOBAL } from '../app_config';
@@ -15,6 +15,7 @@ export class MembreService {
 
   private baseURL="http://localhost:8081/api/membres";
   public tab : Membre[]= GLOBAL._DB.membre;
+  membre : Membre ; 
   constructor(private httpClient: HttpClient) { 
   }
   // saveMember(member : Membre) : Promise <Membre> {
@@ -94,4 +95,24 @@ export class MembreService {
     return this.httpClient.put(`${this.baseURL}/etudiant/${id}`, etd);
   }
 
+  getEnsList(): Observable<EnseignementChercheur[]>{
+    return this.httpClient.get<EnseignementChercheur[]>(`${this.baseURL}/enseignant`);
+  }
+
+
+
+  getMemberById(id : string) : Observable<Membre> {
+    return this.httpClient.get<Membre>(`${this.baseURL}/${id}`);
+  }
+ 
+  public publish(idMembre: number, idPub: number) {
+    
+    return this.httpClient.put<void>(`${this.baseURL}/membre/${idMembre}/publication/${idPub}`,{});
+  }
+
+
+  public publishOutil(idMembre: number, idOutil: number) {
+    
+    return this.httpClient.put<void>(`${this.baseURL}/membre/${idMembre}/outil/${idOutil}`,{});
+  }
 }

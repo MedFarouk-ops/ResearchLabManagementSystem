@@ -5,6 +5,10 @@ import { MembreService } from 'src/app/_services/membre.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import {MatTableDataSource} from '@angular/material/table';
 import { Membre } from 'src/app/models/membre';
+import { FileService } from 'src/app/_services/file.service';
+import { HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-member-list',
@@ -15,11 +19,13 @@ export class MemberListComponent implements OnInit {
 
   displayedColumns: string[] = ["id", "cin", "name", "type", "cv", "createdDate","actions"];
 
-  dataSource : MatTableDataSource<Membre>;   
+  dataSource : MatTableDataSource<Membre>; 
+  filenames: string[] = [];
+  fileStatus = { status: '', requestType: '', percent: 0 };  
 
   membres : Membre[];
   public nbMembres : number ;
-  constructor(private membreService: MembreService , private router: Router ,private dialog : MatDialog) {
+  constructor(private membreService: MembreService , private router: Router ,private dialog : MatDialog , private fs :FileService) {
     this.dataSource = new MatTableDataSource(this.membreService.tab);
   }
 
@@ -34,36 +40,6 @@ export class MemberListComponent implements OnInit {
     }) 
   }
 
-
-  // addMembre(){
-  //   this.router.navigate(['add-voucher']);
-  // }
-
-  // showMembre(id: number){
-  //   this.router.navigate(['show-voucher', id]);
-  // }
-
-  // deleteMembre(id: number){
-  //   this.voucherService.deleteVoucher(id).subscribe( data => {
-  //     console.log(data);
-  //     this.getVouchers();
-  //   })
-  // }
-
-
-
-  // constructor(private ms:MembreService , private router : Router , private dialog : MatDialog) {
-  //   this.dataSource = new MatTableDataSource(this.ms.tab);
-  // }
-
- 
-  // getAllMembers(){
-  //   this.data = this.membreService.tab;
-  // }
-
-  // getData() :void {
-  //   this.membreService.getAllMembers().then((data) => this.dataSource );
-  // }
 
   deleteMembre(id : any) : void {
     // this.ms.RemoveMemberById(id).then(() => {this.getAllMembers();});
@@ -95,5 +71,62 @@ export class MemberListComponent implements OnInit {
   //     this.dataSource.paginator.firstPage();
   //   }
   // }
+
+  showProfile(id : any){
+    this.router.navigate(['profile', id]);
+  }
+
+
+  onDownloadFile(filename: string): void {
+    this.fs.download(filename).subscribe(
+      event => {
+        console.log(event);
+        this.resportProgress(event);
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }
+  private resportProgress(httpEvent: HttpEvent<string[] | Blob>): void {
+    switch(httpEvent.type) {
+      case HttpEventType.UploadProgress:
+        this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Uploading... ');
+        break;
+      case HttpEventType.DownloadProgress:
+        this.updateStatus(httpEvent.loaded, httpEvent.total!, 'Downloading... ');
+        break;
+      case HttpEventType.ResponseHeader:
+        console.log('Header returned', httpEvent);
+        break;
+      case HttpEventType.Response:
+        if (httpEvent.body instanceof Array) {
+          this.fileStatus.status = 'done';
+          for (const filename of httpEvent.body) {
+            this.filenames.unshift(filename);
+          }
+        } else {
+          saveAs(new File([httpEvent.body!], httpEvent.headers.get('File-Name')!, 
+                  {type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}));
+          // saveAs(new Blob([httpEvent.body!], 
+          //   { type: `${httpEvent.headers.get('Content-Type')};charset=utf-8`}),
+          //    httpEvent.headers.get('File-Name'));
+        }
+        this.fileStatus.status = 'done';
+        break;
+        default:
+          console.log(httpEvent);
+          break;
+      
+    }
+  }
+  
+  private updateStatus(loaded: number, total: number, requestType: string): void {
+    this.fileStatus.status = 'progress';
+    this.fileStatus.requestType = requestType;
+    this.fileStatus.percent = Math.round(100 * loaded / total);
+  }
+
+
   
 }

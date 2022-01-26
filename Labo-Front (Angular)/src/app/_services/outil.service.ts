@@ -19,8 +19,8 @@ export class OutilService {
         })});
   }
   
-  createOutils(outil: Outil): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, outil);
+  createOutils(outil: Outil): Observable<Outil>{
+    return this.httpClient.post<Outil>(`${this.baseURL}`, outil);
   }
   
   getOutilsById(id: string): Observable<Outil>{

@@ -5,4 +5,5 @@ export class Publication {
     titre:string;
     lien:string;
     sourcePdf:string;
+    memberId : number;
 }

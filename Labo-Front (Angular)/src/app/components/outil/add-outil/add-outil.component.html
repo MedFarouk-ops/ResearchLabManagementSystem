@@ -42,13 +42,30 @@
                                       <label for="dateOutil">Date Outils</label>
                                       <input type="date" class="form-control" id="dateOutil" name="dateOutil"  ngModel>
                                     </div>
-                                    <div class="form-group">
-                                      <label for="source">Source</label>
-                                      <input type="text" class="form-control" id="titre" placeholder="source Outil" name="source" ngModel>
-                                    </div>
+                                    
+                                    <fieldset>
+                                      <div class="form-group">
+                                        <label for="source">Source</label>
+                                          <input type="file" (change)="onUploadFiles($event)" name="files" multiple class="form-control" />
+                                      </div>
+                                      </fieldset>
+                                      <div *ngIf="fileStatus.status==='progress'">
+                                        <div class="progress">
+                                          <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                              {{ fileStatus.requestType }} {{ fileStatus.percent }} 
+                                            </div>
+                                      </div>
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label>Propriétaire : </label>
+                                        <select id = "memberId"  name = "memberId" ngModel>
+                                            <option *ngFor = "let membre of membres" [value]="membre.id"   >{{membre.nom}} {{membre.prenom}}</option>
+                                        </select>
+                                        </div>
 
                                     <button type="submit" class="btn btn-primary me-2" >Submit</button>
-                                    <button class="btn btn-light">Cancel</button>
+                                    <button class="btn btn-light" (click)="goToOutilList()" >Cancel</button>
                                   </form>
                                 </div>
                               </div>

@@ -12,4 +12,5 @@ export class Etudiant implements Membre{
     diplome? :string;
     sujet? :string;
     dateInscription  ?: Date;
+    ensId : number;
 }

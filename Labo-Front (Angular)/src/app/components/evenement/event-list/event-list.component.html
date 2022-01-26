@@ -69,7 +69,7 @@
                     <th>ACTION</th>
                     
                 </tr>
-                
+
                 </thead>
                 <tbody>
                 <tr *ngFor = "let event of events">
@@ -90,9 +90,8 @@
                     <h6 class="text-success">{{event.lieu}}</h6>
                   </td>
                   <td> 
-                    <button  class="btn btn-info" (click)="edit(event.id)" ><i class="mdi mdi-lead-pencil"></i></button>
+                    <button  class="btn btn-warning" (click)="edit(event.id)" ><i class="mdi mdi-lead-pencil"></i></button>
                     <button  class="btn" (click)="deleteEvenement(event.id)"><i class="mdi mdi-delete"></i></button>
-                    <button  class="btn btn-warning">Aff.</button>
                 </td>
               </tr>                                      
     </tbody>
@@ -108,57 +107,20 @@
   <div class="card card-rounded">
   <div class="card-body card-rounded">
     <h4 class="card-title  card-title-dash">Recent Events</h4>
+    <div *ngFor = "let event of events" >
     <div class="list align-items-center border-bottom py-2">
       <div class="wrapper w-100">
         <p class="mb-2 font-weight-medium">
-          Change in Directors
+          {{event.titre}}
         </p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
+            <p class="mb-0 text-small text-muted">{{event.dateOutil | date: 'dd-MM-yyyy'}}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="list align-items-center border-bottom py-2">
-      <div class="wrapper w-100">
-        <p class="mb-2 font-weight-medium">
-          Other Events
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="list align-items-center border-bottom py-2">
-      <div class="wrapper w-100">
-        <p class="mb-2 font-weight-medium">
-          Quarterly Report
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="list align-items-center border-bottom py-2">
-      <div class="wrapper w-100">
-        <p class="mb-2 font-weight-medium">
-          Change in Directors
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-          </div>
-        </div>
-      </div>
     </div>
     
     <div class="list align-items-center pt-3">

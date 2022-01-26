@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
-          "strict": true
+          "strict": false
         }
       },
       "root": "",
@@ -25,7 +25,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "input": "./public/admin-assets/", "glob": "**/*", "output": "admin-assets" }
+              { "input": "./public/admin-assets/", "glob": "**/*", "output": "admin-assets" },
+              { "input": "./public/home-assets/", "glob": "**/*", "output": "home-assets" }
               
             ],
             "styles": [
@@ -56,7 +57,13 @@
               "./public/admin-assets/js/settings.js",
               "./public/admin-assets/js/todolist.js",
               "./public/admin-assets/js/dashboard.js",
-              "./public/admin-assets/js/Chart.roundedBarCharts.js"
+              "./public/admin-assets/js/Chart.roundedBarCharts.js",
+
+              "./public/home-assets/js/jquery.min.js" ,
+              "./public/home-assets/js/bootstrap.min.js" ,
+              "./public/home-assets/js/headroom.min.js" ,
+              "./public/home-assets/js/jQuery.headroom.min.js" ,
+              "./public/home-assets/js/template.js"
 
             ]
           },

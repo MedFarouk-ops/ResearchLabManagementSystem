@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Publication } from '../models/publication';
@@ -18,8 +18,8 @@ export class PublicationService {
         })});
   }
   
-  createPublication(publication: Publication): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, publication);
+  createPublication(publication: Publication): Observable<Publication>{
+    return this.httpClient.post<Publication>(`${this.baseURL}`, publication);
   }
   
   getPublicationById(id: string): Observable<Publication>{
@@ -33,5 +33,5 @@ export class PublicationService {
   deletePublication(id: string): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
-  
+
 }

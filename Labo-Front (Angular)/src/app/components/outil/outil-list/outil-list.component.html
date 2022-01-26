@@ -83,8 +83,14 @@
                     <td>
                     <h6>{{outil.dateOutil | date: 'dd-MM-yyyy'}}</h6>
                     </td>
+                  
                   <td>
-                    <h6 >{{outil.source}}</h6>
+                    <div *ngIf="outil.source.length >0 ; else elseBlock">             
+                           <button  class="btn btn-info" (click)="onDownloadFile(outil.source)" ><i class="mdi mdi-arrow-down-bold-circle-outline"></i></button>
+                    </div>
+                    <ng-template #elseBlock>                
+                        <button  class="btn btn-info" (click)="onDownloadFile(outil.source)" disabled><i class="mdi mdi-arrow-down-bold-circle-outline"></i></button>
+                    </ng-template>
                   </td>
                   <td> 
                     <button  class="btn btn-info" (click)="edit(outil.id)" ><i class="mdi mdi-lead-pencil"></i></button>
@@ -105,63 +111,26 @@
   <div class="card card-rounded">
   <div class="card-body card-rounded">
     <h4 class="card-title  card-title-dash">Recent Events</h4>
-    <div class="list align-items-center border-bottom py-2">
-      <div class="wrapper w-100">
-        <p class="mb-2 font-weight-medium">
-          Change in Directors
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
+    <div *ngFor = "let event of events" >
+      <div class="list align-items-center border-bottom py-2">
+        <div class="wrapper w-100">
+          <p class="mb-2 font-weight-medium">
+            {{event.titre}}
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <i class="mdi mdi-calendar text-muted me-1"></i>
+              <p class="mb-0 text-small text-muted">{{event.dateOutil | date: 'dd-MM-yyyy'}}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="list align-items-center border-bottom py-2">
-      <div class="wrapper w-100">
-        <p class="mb-2 font-weight-medium">
-          Other Events
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-          </div>
-        </div>
       </div>
-    </div>
-    <div class="list align-items-center border-bottom py-2">
-      <div class="wrapper w-100">
-        <p class="mb-2 font-weight-medium">
-          Quarterly Report
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="list align-items-center border-bottom py-2">
-      <div class="wrapper w-100">
-        <p class="mb-2 font-weight-medium">
-          Change in Directors
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <i class="mdi mdi-calendar text-muted me-1"></i>
-            <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+  
     <div class="list align-items-center pt-3">
       <div class="wrapper w-100">
         <p class="mb-0">
-          <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+          <a routerLink="/evenement" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
         </p>
       </div>
     </div>

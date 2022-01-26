@@ -34,6 +34,15 @@ import { AddEventComponent } from './components/evenement/add-event/add-event.co
 import { EditEventComponent } from './components/evenement/edit-event/edit-event.component';
 import { AddOutilComponent } from './components/outil/add-outil/add-outil.component';
 import { EditOutilComponent } from './components/outil/edit-outil/edit-outil.component';
+import { SelectRoleComponent } from './components/select-role/select-role.component';
+import { VisitorHomeComponent } from './components/visitor/visitor-home/visitor-home.component';
+import { MemberHomeComponent } from './components/membres/member-home/member-home.component';
+import { VisitorMembresComponent } from './components/visitor/visitor-membres/visitor-membres.component';
+import { VisitorMembresPubsComponent } from './components/visitor/visitor-membres-pubs/visitor-membres-pubs.component';
+import { VisitorMembresToolsComponent } from './components/visitor/visitor-membres-tools/visitor-membres-tools.component';
+import { VisitorSidebarComponent } from './components/visitor/visitor-sidebar/visitor-sidebar.component';
+import { VisitorEventComponent } from './components/visitor/visitor-event/visitor-event.component';
+import { ProfileComponent } from './components/member/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +67,15 @@ import { EditOutilComponent } from './components/outil/edit-outil/edit-outil.com
     EditEventComponent,
     AddOutilComponent,
     EditOutilComponent,
+    SelectRoleComponent,
+    VisitorHomeComponent,
+    MemberHomeComponent,
+    VisitorMembresComponent,
+    VisitorMembresPubsComponent,
+    VisitorMembresToolsComponent,
+    VisitorSidebarComponent,
+    VisitorEventComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

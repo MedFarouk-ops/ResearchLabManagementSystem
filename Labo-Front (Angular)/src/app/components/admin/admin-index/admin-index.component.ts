@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Evenement } from 'src/app/models/evenement';
 import { Membre } from 'src/app/models/membre';
+import { EvenementService } from 'src/app/_services/evenement.service';
 import { MembreService } from 'src/app/_services/membre.service';
 
 @Component({
@@ -12,13 +14,18 @@ import { MembreService } from 'src/app/_services/membre.service';
 })
 export class AdminIndexComponent implements OnInit {
 
-  // dataSource : MatTableDataSource<Membre>;   
-
-  constructor(private ms:MembreService , private router : Router ) {
-    // this.dataSource = new MatTableDataSource(this.ms.tab);
+  events : Evenement[];
+  constructor(private es: EvenementService ,private ms:MembreService, private router: Router ,private dialog : MatDialog) {
+    // this.dataSource = new MatTableDataSource(this.membreService.tab);
   }
 
   ngOnInit(): void {
+    this.getEvenements();
+  }
+  private getEvenements(){
+    this.es.getEvenementsList().subscribe(data =>{
+      this.events=data;
+    }) 
   }
 
 }
