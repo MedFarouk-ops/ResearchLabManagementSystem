@@ -30,8 +30,12 @@ public interface IMemberService {
 	public List<Etudiant> findEtudiantsByEncadrant(Long idens);
 	
 	public void affecterauteurTopublication(Long idauteur, Long idpub);
+	
+	public void affecterauteurToOutils(Long idauteur, Long idoutils);
 
 	public List<PublicationBean> findPublicationparauteur (Long idauteur);
+	
+	public List<EnseignantChercheur> getAllEns();
 
 	
 }

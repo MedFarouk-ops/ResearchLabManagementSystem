@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 import com.example.demo.beans.PublicationBean;
 import com.example.demo.dao.EnseignantRepository;
 import com.example.demo.dao.EtudiantRepository;
+import com.example.demo.dao.MembreOutilRepository;
 import com.example.demo.dao.MembreRepository;
 import com.example.demo.dao.Membrepubrepository;
 import com.example.demo.entities.EnseignantChercheur;
 import com.example.demo.entities.Etudiant;
 import com.example.demo.entities.Member;
+import com.example.demo.entities.Membre_Outil;
+import com.example.demo.entities.Membre_Outil_Ids;
 import com.example.demo.entities.Membre_Pub_Ids;
 import com.example.demo.entities.Membre_Publication;
 import com.example.demo.proxies.PublicationProxyService;
@@ -29,6 +32,10 @@ public class MembreServiceImpl implements IMemberService{
 	EnseignantRepository enseignantRepository;
 	@Autowired
 	Membrepubrepository membrepubrepository;
+	
+	@Autowired
+	MembreOutilRepository memberToolrepository ;
+	
 	@Autowired
 	PublicationProxyService publicationProxyService;
 	
@@ -94,6 +101,21 @@ public class MembreServiceImpl implements IMemberService{
 
 		return etudiantRepository.findByEncadrant(ens);
 	}
+	
+	
+	
+	@Override
+	public List<EnseignantChercheur> getAllEns() {
+		
+		List<EnseignantChercheur> ens=enseignantRepository.findAll();
+
+		return ens;
+	}
+	
+	
+	
+	
+	
 	@Override
 	public void affecterauteurTopublication(Long idauteur, Long idpub) {
 		Member mbr= membreRepository.findById(idauteur).get();
@@ -101,8 +123,19 @@ public class MembreServiceImpl implements IMemberService{
 		mbs.setAuteur(mbr);
 		mbs.setId(new Membre_Pub_Ids(idpub, idauteur));
 		membrepubrepository.save(mbs);
-			
 	}
+	
+	
+	@Override
+	public void affecterauteurToOutils(Long idauteur, Long idoutil) {
+		Member mbr= membreRepository.findById(idauteur).get();
+		Membre_Outil mbs= new Membre_Outil();
+		mbs.setAuteur(mbr);
+		mbs.setId(new Membre_Outil_Ids(idoutil, idauteur));
+		memberToolrepository.save(mbs);
+	}
+	
+	
 	
 	public List<PublicationBean> findPublicationparauteur(Long idauteur) {
 		List<PublicationBean> pubs= new ArrayList<PublicationBean>();
